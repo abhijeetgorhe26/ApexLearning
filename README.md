@@ -2,6 +2,8 @@
 
 Welcome to **Apex Learning**, a futuristic, highly immersive, and hardware-accelerated Student Dashboard. This platform has been meticulously crafted to demonstrate how cutting-edge visual design can meet modern software engineering principles: **zero layout shifts, buttery-smooth interactions, and modular React patterns.**
 
+![Apex Learning Screenshot](/Screenshot%202026-05-30%20at%2010.00.31%E2%80%AFAM.png)
+
 The interface is built around an atmospheric dark mode theme (`#06060c`), using glassmorphic bento grids, glowing hover gradients, and organic spring physics to create a delightful learning experience.
 
 ---
@@ -21,10 +23,12 @@ The interface is built around an atmospheric dark mode theme (`#06060c`), using 
 To satisfy both SEO velocity and dynamic UI interactions, the application is divided cleanly into **Server Components** and **Client Components**:
 
 ### 1. Server Components (RSC)
+
 - **`src/app/page.tsx`**: Serves as our secure entry gate. It executes the database query directly on the server, fetching our course schedules and progress milestones securely without exposing API keys or triggering client-side hydration waterfalls.
 - **`src/lib/supabase.ts`**: Coordinates the client connectors. If live database variables are missing, it triggers our highly interactive **Local Sandbox Fallback**, providing flawless seeded data so that inspectors can explore the complete application immediately without database setup.
 
 ### 2. Client Components
+
 - **`Sidebar`**: Manages collapsible navigation drawer states (full on desktop, compact on tablet, floating tab bar on mobile) and uses Framer Motion's `layoutId` to animate the active highlight indicator smoothly across tabs.
 - **`DashboardGrid`**: Manages the staggered entrance animation of the Bento grid tiles sequentially, utilizing spring physics for a fluid, natural cascade.
 - **`HeroTile`**: Incorporates custom greeting timers and manages an interactive **Streak Tracker calendar** where days can be clicked to toggle progress.
@@ -37,6 +41,7 @@ To satisfy both SEO velocity and dynamic UI interactions, the application is div
 ## ⚡ Performance Optimization & Zero Layout Shifts
 
 To achieve a **Cumulative Layout Shift (CLS) of exactly 0**, we strictly adhered to these guidelines:
+
 1. **Absolute Aspect Positioning**: Skeletons match the precise vertical and horizontal heights of the interactive Bento tiles.
 2. **GPU Acceleration**: Animations exclusively modify `transform` and `opacity` parameters, leveraging hardware layers for smooth 60fps rendering without paint events.
 3. **Responsive CSS Media Hooks**: Responsive structural layouts are completely CSS-driven (using Tailwind's breakpoints) to prevent flash-of-unstyled-content (FOUC) layout jumps.
@@ -61,8 +66,8 @@ create table courses (
 alter table courses enable row level security;
 
 -- 3. Create a public read-only access policy
-create policy "Allow public read access" 
-on courses for select 
+create policy "Allow public read access"
+on courses for select
 using (true);
 
 -- 4. Seed the database with high-fidelity learning courses
@@ -78,14 +83,19 @@ insert into courses (title, progress, icon_name) values
 ## 🚀 Getting Started & Local Launch
 
 ### 1. Configure Credentials
+
 Duplicate `.env.example` to `.env.local` and insert your credentials:
+
 ```bash
 cp .env.example .env.local
 ```
-*(Note: If you leave these values blank, the dashboard will automatically run in its elegant **Sandbox Fallback Mode** with mock credentials!)*
+
+_(Note: If you leave these values blank, the dashboard will automatically run in its elegant **Sandbox Fallback Mode** with mock credentials!)_
 
 ### 2. Run the Development Server
+
 Install dependencies and trigger the server node:
+
 ```bash
 npm install
 npm run dev
@@ -100,4 +110,5 @@ The application is now active at **[http://localhost:3000](http://localhost:3000
 - **Desktop (>1024px)**: Expandable left navigation drawer with 4-column Bento layout.
 - **Tablet (768px - 1024px)**: Collapsed icon-only navigation, scaling the grid down to 2 columns.
 - **Mobile (<768px)**: Smooth bottom-floating tab bar, reflowing the Bento grid into a single vertical scroll.
+
 # ApexLearning
