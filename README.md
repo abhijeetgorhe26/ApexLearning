@@ -2,7 +2,7 @@
 
 Welcome to **Apex Learning**, a futuristic, highly immersive, and hardware-accelerated Student Dashboard. This platform has been meticulously crafted to demonstrate how cutting-edge visual design can meet modern software engineering principles: **zero layout shifts, buttery-smooth interactions, and modular React patterns.**
 
-![Apex Learning Screenshot](/Screenshot%202026-05-30%20at%2010.00.31%E2%80%AFAM.png)
+![Apex Learning Screenshot](public/Screenshot%202026-05-30%20at%2010.00.31%E2%80%AFAM.png)
 
 The interface is built around an atmospheric dark mode theme (`#06060c`), using glassmorphic bento grids, glowing hover gradients, and organic spring physics to create a delightful learning experience.
 
